@@ -41,7 +41,31 @@
 
         h1, h2, h3 { font-family: 'Noto Serif KR', serif; }
 
+        /* ===== 시작 화면 ===== */
         .start-screen h1 { font-size: 2.5rem; color: var(--primary-color); margin-top: 40px; }
+
+        /* ✅ 방문자 카운터 (첫 화면용) */
+        .visitor-counter-top {
+            margin: 20px 0 30px;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, #e8eaf6 0%, #fce4ec 100%);
+            border-radius: 12px;
+            border: 1px solid #c5cae9;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .visitor-counter-top p {
+            margin: 0 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.5;
+        }
+        .visitor-counter-top img {
+            display: block;
+            margin: 0 auto;
+            height: 28px;
+        }
+
         .btn {
             display: block; width: 100%; padding: 15px; margin: 10px 0; border: none; border-radius: 8px;
             background-color: var(--primary-color); color: white; font-size: 1.1rem; cursor: pointer;
@@ -51,6 +75,7 @@
         .btn-outline { background-color: white; border: 2px solid var(--primary-color); color: var(--primary-color); }
         .btn-outline:hover { background-color: #e8eaf6; }
 
+        /* ===== 질문 화면 ===== */
         .question-screen { display: none; width: 100%; }
         .progress-bar { width: 100%; height: 10px; background-color: #ddd; border-radius: 5px; margin-bottom: 30px; overflow: hidden; }
         .progress-fill { height: 100%; background-color: var(--accent-color); width: 0%; transition: width 0.3s ease; }
@@ -61,6 +86,7 @@
         .answer-btn { background-color: white; border: 1px solid #ddd; color: #333; padding: 20px; margin-bottom: 15px; border-radius: 10px; width: 100%; cursor: pointer; transition: all 0.2s; font-size: 1rem; line-height: 1.4; }
         .answer-btn:hover { background-color: var(--history-bg); border-color: var(--primary-color); font-weight: bold; }
 
+        /* ===== 결과 화면 ===== */
         .result-screen { display: none; width: 100%; }
         .mbti-type { font-size: 2rem; color: var(--accent-color); font-weight: bold; margin-bottom: 10px; }
         .activist-name { font-size: 1.8rem; margin-bottom: 5px; color: var(--primary-color); font-weight: 700; }
@@ -78,7 +104,7 @@
         .desc-title { color: var(--primary-color); font-weight: bold; display: block; margin-bottom: 5px; font-size: 1.1rem; margin-top: 15px;}
         .desc-title:first-child { margin-top: 0; }
         
-        /* 방문자 카운터 스타일 (하단 정렬) */
+        /* ===== 하단 푸터 카운터 ===== */
         .visitor-counter {
             margin-top: auto;
             padding: 30px 0;
@@ -94,23 +120,32 @@
 <body>
 
 <div class="container">
+
+    <!-- ===== 시작 화면 ===== -->
     <div id="start-screen" class="start-screen">
         <h1>내 안의<br>독립운동가 찾기</h1>
-        <p style="margin-bottom: 40px; line-height: 1.6;">
+        <p style="margin-bottom: 20px; line-height: 1.6;">
             지금 내 성격과 가장 닮은<br>
             <strong>경북의 독립운동가</strong>는 누구일까요?<br>
             <span style="font-size:0.9rem; color:#666;">(일상 질문 + 역사적 상상 질문)</span>
         </p>
-        <div style="margin: 10px 0 20px; font-size:0.85rem; color:#666;">
-        <p>지금까지 이만큼 참여했어요 👇</p>
-       <a href="https://hits.seeyoufarm.com">
-    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://bleukyr-gif.github.io/independenceMBTI/">
-</a>
+
+        <!-- ✅ 첫 화면 방문자 카운터 -->
+        <div class="visitor-counter-top">
+            <p>🏅 지금까지 <strong>현대판 독립운동가</strong>를 꿈꾼 분들이<br>이만큼 다녀갔습니다!</p>
+            <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fbleukyr-gif.github.io%2FindependenceMBTI%2F" target="_blank">
+                <img 
+                    src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fbleukyr-gif.github.io%2FindependenceMBTI%2F&label=%EC%B0%B8%EC%97%AC%20%EC%9D%B8%EC%9B%90&labelColor=%231A237E&countColor=%23C62828&style=flat"
+                    alt="참여 인원 카운터"
+                />
+            </a>
         </div>
+
         <button class="btn" onclick="startTest('kids')">🐣 초등학생용 시작하기</button>
         <button class="btn btn-outline" onclick="startTest('adult')">🏢 일반 성인용 시작하기</button>
     </div>
 
+    <!-- ===== 질문 화면 ===== -->
     <div id="question-screen" class="question-screen">
         <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
         <div id="q-tag" class="tag tag-daily">일상</div>
@@ -119,6 +154,7 @@
         <button class="answer-btn" onclick="nextQuestion('B')">답변 B</button>
     </div>
 
+    <!-- ===== 결과 화면 ===== -->
     <div id="result-screen" class="result-screen">
         <h3>당신의 독립운동 유형은...</h3>
         <div id="r-mbti" class="mbti-type">Type</div>
@@ -133,22 +169,23 @@
         <div id="r-alias" class="activist-alias">별칭</div>
         <div class="desc-box"><div id="r-desc">설명 내용</div></div>
         <button class="btn" onclick="location.reload()">테스트 다시 하기</button>
-        <button class="btn btn-outline" onclick="window.open('https://e-gonghun.mpva.go.kr/')">공훈전자사료관 방문</button>
+        <button class="btn btn-outline" onclick="window.open('https://815gb.or.kr/')">경상북도독립운동기념관 방문</button>
     </div>
 
+    <!-- ===== 하단 푸터 카운터 (기존 유지) ===== -->
     <div class="visitor-counter">
         <p>지금까지 <strong>현대판 독립운동가</strong>를 꿈꾸는<br>분들이 이만큼 다녀갔습니다.</p>
         <div class="counter-badge">
-            <a href="https://hits.seeyoufarm.com">
-                <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbleukyr-gif%2FindependenceMBTI&count_bg=%23C62828&title_bg=%231A237E&icon=&icon_color=%23E7E7E7&title=참여+인원&edge_flat=false" alt="방문자 카운트"/>
+            <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fbleukyr-gif.github.io%2FindependenceMBTI%2F" target="_blank">
+                <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fbleukyr-gif.github.io%2FindependenceMBTI%2F&label=%EC%B0%B8%EC%97%AC%20%EC%9D%B8%EC%9B%90&labelColor=%231A237E&countColor=%23C62828&style=flat" alt="방문자 카운트"/>
             </a>
         </div>
         <div class="footer-info">자료출처: 공훈전자사료관, 경상북도독립운동기념관</div>
     </div>
+
 </div>
 
 <script>
-    // [MBTI 데이터 및 로직 생략]
     const results = {
         "INTJ": { name: "장진홍 (칠곡)", alias: "보이지 않는 전략가", img: "intj.jpg", desc: `<span class="desc-title">[성향 분석]</span>조직을 만들기보다 단독 계획을 선호한 통찰력 있는 전략가였습니다. <span class="desc-title">[결정적 일화]</span>1927년 조선은행 대구지점 폭파를 설계하고 원격으로 실행한 완벽주의자였습니다.` },
         "INTP": { name: "동산 류인식 (안동)", alias: "깨어있는 혁신가", img: "intp.jpg", desc: `<span class="desc-title">[성향 분석]</span>학문 연구와 교육을 통해 시대의 변화를 이끈 지식인이었습니다. <span class="desc-title">[결정적 일화]</span>보수 유림의 반대를 무릅쓰고 상투를 자르며 '협동학교'를 세운 혁신가였습니다.` },
