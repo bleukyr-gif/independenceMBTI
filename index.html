@@ -37,12 +37,10 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            position: relative;
         }
 
         h1, h2, h3 { font-family: 'Noto Serif KR', serif; }
 
-        /* 시작 화면 */
         .start-screen h1 { font-size: 2.5rem; color: var(--primary-color); margin-top: 40px; }
         .btn {
             display: block; width: 100%; padding: 15px; margin: 10px 0; border: none; border-radius: 8px;
@@ -53,7 +51,6 @@
         .btn-outline { background-color: white; border: 2px solid var(--primary-color); color: var(--primary-color); }
         .btn-outline:hover { background-color: #e8eaf6; }
 
-        /* 질문 화면 */
         .question-screen { display: none; width: 100%; }
         .progress-bar { width: 100%; height: 10px; background-color: #ddd; border-radius: 5px; margin-bottom: 30px; overflow: hidden; }
         .progress-fill { height: 100%; background-color: var(--accent-color); width: 0%; transition: width 0.3s ease; }
@@ -64,7 +61,6 @@
         .answer-btn { background-color: white; border: 1px solid #ddd; color: #333; padding: 20px; margin-bottom: 15px; border-radius: 10px; width: 100%; cursor: pointer; transition: all 0.2s; font-size: 1rem; line-height: 1.4; }
         .answer-btn:hover { background-color: var(--history-bg); border-color: var(--primary-color); font-weight: bold; }
 
-        /* 결과 화면 */
         .result-screen { display: none; width: 100%; }
         .mbti-type { font-size: 2rem; color: var(--accent-color); font-weight: bold; margin-bottom: 10px; }
         .activist-name { font-size: 1.8rem; margin-bottom: 5px; color: var(--primary-color); font-weight: 700; }
@@ -82,13 +78,16 @@
         .desc-title { color: var(--primary-color); font-weight: bold; display: block; margin-bottom: 5px; font-size: 1.1rem; margin-top: 15px;}
         .desc-title:first-child { margin-top: 0; }
         
-        /* 방문자 카운터 스타일 */
+        /* 방문자 카운터 스타일 (하단 정렬) */
         .visitor-counter {
-            margin-top: auto; padding-top: 40px; padding-bottom: 20px; width: 100%;
-            border-top: 1px solid #eee; font-size: 0.85rem; color: #666;
+            margin-top: auto;
+            padding: 30px 0;
+            width: 100%;
+            border-top: 1px solid #eee;
+            font-size: 0.85rem;
+            color: #666;
         }
         .counter-badge { margin-top: 10px; }
-
         .footer-info { margin-top: 10px; font-size: 0.75rem; color: #999; }
     </style>
 </head>
@@ -132,7 +131,7 @@
     </div>
 
     <div class="visitor-counter">
-        <p>지금까지 <strong>현대판 독립운동가</strong>를 꿈꾸는<br>인원들이 이만큼 다녀갔습니다.</p>
+        <p>지금까지 <strong>현대판 독립운동가</strong>를 꿈꾸는<br>분들이 이만큼 다녀갔습니다.</p>
         <div class="counter-badge">
             <a href="https://hits.seeyoufarm.com">
                 <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbleukyr-gif%2FindependenceMBTI&count_bg=%23C62828&title_bg=%231A237E&icon=&icon_color=%23E7E7E7&title=참여+인원&edge_flat=false" alt="방문자 카운트"/>
@@ -143,7 +142,7 @@
 </div>
 
 <script>
-    // [MBTI 데이터 및 로직 생략 없이 그대로 유지]
+    // [MBTI 데이터 및 로직 생략]
     const results = {
         "INTJ": { name: "장진홍 (칠곡)", alias: "보이지 않는 전략가", img: "intj.jpg", desc: `<span class="desc-title">[성향 분석]</span>조직을 만들기보다 단독 계획을 선호한 통찰력 있는 전략가였습니다. <span class="desc-title">[결정적 일화]</span>1927년 조선은행 대구지점 폭파를 설계하고 원격으로 실행한 완벽주의자였습니다.` },
         "INTP": { name: "동산 류인식 (안동)", alias: "깨어있는 혁신가", img: "intp.jpg", desc: `<span class="desc-title">[성향 분석]</span>학문 연구와 교육을 통해 시대의 변화를 이끈 지식인이었습니다. <span class="desc-title">[결정적 일화]</span>보수 유림의 반대를 무릅쓰고 상투를 자르며 '협동학교'를 세운 혁신가였습니다.` },
